@@ -8,6 +8,7 @@
 if (!is_logged())
 {
 	$_SESSION["REDIRECT_URL"]="list.php";
+	$_SESSION["login_message"]="Please login to add the appartment details.";
 	header("location:login.php");
 	die();
 }
