@@ -37,7 +37,6 @@
 			}
 		}
 		else{
-			echo "ERROR";;
 			$errorstr = "Please fill mandatory fields.";
 		}
 	}
@@ -52,9 +51,11 @@
 								<h2 style="font-size: 20px;">Register to create a account.</h2>
 								<input type='hidden' name="register" />
                             </div>
+							<?php if ($errorstr!=null):?>
 							<div>
 								<h2 style="color : red;"><?php echo $errorstr;?></h2>
 							</div>
+							<?php endif;?>
                         </div>
                 </div> 
 				<div class="row">
@@ -85,10 +86,11 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-1 col-md-offset-0" style="margin-top:20px;">
-						<a href="register.php">Already have an account? Click here to login.</a>
+					<div class="col-md-4 col-md-offset-0" style="margin-top: 20px;">
+						<a href="login.php">Already have an account? Click here to login.</a>
 					</div>
 				</div>
+
 			</form>
 		</div>
 	</div>

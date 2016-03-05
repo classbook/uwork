@@ -55,16 +55,18 @@
 							   <?php if ($errorstr!=null):?>
 								<?php endif;?>
                             </div>
+							<?php if ($errorstr!=null):?>
 							<div>
 								<h2 style="color : red;"><?php echo $errorstr;?></h2>
 							</div>
-							<?php if (isset($_SESSION["login_message"])):?>
+							<?php endif;if (isset($_SESSION["login_message"])):?>
 							<div style="color : green;">
 								<?php echo $_SESSION["login_message"];unset($_SESSION["login_message"]);?>
 							</div>
 							<?php endif;?>
                         </div>
                 </div> 
+
 				<div class="row">
 					<div class="col-md-3">
 						<div class="input_heading">Username</div>
@@ -79,7 +81,7 @@
 					</div>
 				</div>
 				<div class="row">
-					<div class="col-md-1 col-md-offset-0" style="margin-top:20px;">
+					<div class="col-md-4 col-md-offset-0" style="margin-top: 20px;">
 						<a href="register.php">Don't have an account? Click here to register.</a>
 					</div>
 				</div>
