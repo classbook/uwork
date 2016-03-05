@@ -41,6 +41,7 @@
                             <li><a href="logout.php" style="text-decoration:underline">LOGOUT</a></li>							<?php endif;if (!isset($_SESSION["user_logged"])):?>
 							
 							<li><a href="login.php">Login</a></li>
+							<li><a href="register.php">Register</a></li>
 							<?php endif;?>
                             <li>
                             	<form action="#" class="top_search_form">

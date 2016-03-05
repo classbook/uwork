@@ -78,6 +78,11 @@
 						<input type="submit" class="button_search" value="SUBMIT" />
 					</div>
 				</div>
+				<div class="row">
+					<div class="col-md-1 col-md-offset-0" style="margin-top:20px;">
+						<a href="register.php">Don't have an account? Click here to register.</a>
+					</div>
+				</div>
 			</form>
 		</div>
 	</div>
