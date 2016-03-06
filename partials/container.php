@@ -157,13 +157,15 @@
 <script type="text/javascript">
 	webshim.polyfill("forms-ext");
 	//configure forms-ext features
+	webshim.activeLang("en-IN");
 	webshim.setOptions("forms-ext", {
 		replaceUI: "auto",
-		types: "date range number",
+		types: "date",
 		date: {
 			startView: 2,
 			openOnFocus: true,
-			classes: "show-week"
+			classes: "show-week",
+			dateFormat : "dd-mm-yy"
 		},
 		number: {
 			calculateWidth: false
