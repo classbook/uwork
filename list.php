@@ -20,6 +20,20 @@ if (isset($_POST)){
 		"f_name", "day_phone", "address", 
 	);
 }
+
+$neighborhoodcateg = array();
+$query = mysql_query("select * from neighborhood_category");
+while ($row = mysql_fetch_array($query, MYSQL_ASSOC))
+{
+	array_push($neighborhoodcateg, $row);
+}
+$neighborhood = array();
+$query = mysql_query("select * from neighborhood");
+while ($row = mysql_fetch_array($query, MYSQL_ASSOC))
+{
+	array_push($neighborhood, $row);
+}
+
 ?>
 
 
@@ -111,6 +125,26 @@ if (isset($_POST)){
 								<option>---</option>
 								<option>---</option>
 							</select>
+							<div class="input_heading">Select Neighborhood Category</div>
+							<select class="searchrent_select2 w_100" id="neighborhoodcateg">
+								<?php 
+								foreach ($neighborhoodcateg as $key => $value) {?>
+								<option value="<?php echo $value["id"];?>"><?php echo $value["name"];?></option>
+								<?php } ?>
+								<option value="other">Other</option>
+							</select>
+							<input type="text" id="neighborhoodcateg_other" required="required" class="searchrent_inputtext2" />
+
+							<div class="input_heading">Select Neighborhood</div>
+							<select class="searchrent_select2 w_100" id="neighborhood">
+								<?php 
+								foreach ($neighborhood as $key => $value) {?>
+								<option data-filter="<?php echo $value["neighborhood_id"];?>" value="<?php echo $value["id"];?>"><?php echo $value["name"];?></option>
+								<?php } ?>
+								<option value="other">Other</option>
+							</select>
+							<input type="text" id="neighborhood_other" required="required" class="searchrent_inputtext2" />
+
 						</div>
 						<div class="col-md-4">
 							<div class="rent_details_heading ">
@@ -203,6 +237,35 @@ if (isset($_POST)){
     </div>
 </section>
 
+<script type="text/javascript">
+	$(function(){
+		function func(th, suffix){
+			if ($(th).val()=="other"){
+				$("#neighborhood"+suffix+"_other").show().removeAttr("disabled");
+			}
+			else{
+				$("#neighborhood"+suffix+"_other").hide().attr("disabled", "disabled");
+			}
+		}
+		func($("#neighborhoodcateg").change(function(){
+			func(this, "categ");
+			var filter = $(this).val();
+			$("#neighborhood option").each(function(){
+				var value = $(this).val();
+				if (value!=filter && value!="other")
+					$(this).attr("hidden", "hidden");
+				else
+					$(this).removeAttr("hidden");
+			});
+			$("#neighborhood").val($("#neighborhood option:not(:hidden)").eq(0).val());
+
+			func("#neighborhood", "");
+		}), "categ");
+		func($("#neighborhood").change(function(){
+			func(this, "");
+		}), "");
+	});
+</script>
 <?php 
 	$content = ob_get_clean();
 	include './partials/container.php';

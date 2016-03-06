@@ -26,7 +26,13 @@
 					$_SESSION["_userid"] = $row["id"];
 					$_SESSION["user_name"] = $row["f_name"]." ".$row["l_name"];
 					$_SESSION["user_logged"] = true;
-					header("location:".$_SESSION["REDIRECT_URL"]);
+					if (isset($_SESSION["REDIRECT_URL"])){
+						header("location:".$_SESSION["REDIRECT_URL"]);
+						unset($_SESSION["REDIRECT_URL"]);
+					}
+					else{
+						header("location:list.php");
+					}
 					die();
 				}
 				else{
