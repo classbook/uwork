@@ -58,20 +58,22 @@ while ($row = mysql_fetch_array($query, MYSQL_ASSOC))
 							<input type="text" name="address" class="searchrent_inputtext2"/>
 							<div class="input_heading">APARTMENT Name</div>
 							<input type="text" name='name' required="required" class="searchrent_inputtext2"/>
-							<div class="input_heading">I WOULD LIKE TO ADD MY PROPERTY FOR :</div><br>
-							<label style="font-weight: normal">
-							   <input type="checkbox" name='for_rent'/>Rent &nbsp;
-							</label>
-							<label style="font-weight: normal">
-							   <input type="checkbox" name='for_sale'/>Sale &nbsp;
-							</label>
-							<label style="font-weight: normal">
-							   <input type="checkbox" name='for_sublet'/>Sublet &nbsp;
-							</label>
-							<label style="font-weight: normal">
-							   <input type="checkbox" name='for_sterm'/>Short Term 
-							</label>
-
+							<div class="input_heading">I WOULD LIKE TO ADD MY PROPERTY FOR :</div>
+							<div style="float: left">
+								<label style="font-weight: normal; display: inline">
+								   <input type="checkbox" name='for_rent'/>Rent &nbsp;
+								</label>
+								<label style="font-weight: normal; display: inline">
+								   <input type="checkbox" name='for_sale'/>Sale &nbsp;
+								</label>
+								<label style="font-weight: normal; display: inline">
+								   <input type="checkbox" name='for_sublet'/>Sublet &nbsp;
+								</label>
+								<label style="font-weight: normal; display: inline">
+								   <input type="checkbox" name='for_sterm'/>Short Term 
+								</label>
+							</div>
+							<div style="clear: both;"></div>
 							 <div class="input_heading_50">START DATE </div><div class="input_heading_50"> END DATE</div>
 							 <input type="date" required="required" class="searchrent_inputtext3 w_48" style="margin-right:10px;margin-top:5px"/>
 							 <input type="date" required="required" class="searchrent_inputtext3 w_48" style="margin-top:5px"/>
