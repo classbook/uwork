@@ -345,6 +345,7 @@ while ($row = mysql_fetch_array($query, MYSQL_ASSOC))
 					<div id="file_uploads">
 						<input type="hidden" name="file_names" id="upload_file_names" />
 					</div>
+					<input type='text' id="image_success" autocomplete="false" value="" style="display: none;"/>
 				</form>
         </div>
     </div>
@@ -411,6 +412,7 @@ while ($row = mysql_fetch_array($query, MYSQL_ASSOC))
             
 			if (response.success)
 			{
+				$("#image_success").val("required");
 				var div = $("#upload_contents .template_success:eq(0)").clone().css("display", "block");
 				$(".filename", div).html(response.msg);
 				$("#upload_contents").append(div.css("display", "block"));
@@ -420,6 +422,14 @@ while ($row = mysql_fetch_array($query, MYSQL_ASSOC))
 			}
         }
 	});
+	
+	$("form").submit(function(){
+		if ($("#image_success").val()==""){
+			alert("Atleast one image should be uploaded");
+			return false;
+		}
+		return true;
+	})
 
 
 	});

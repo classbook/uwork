@@ -76,7 +76,7 @@
 				<div class="row">
 					<div class="col-md-3">
 						<div class="input_heading">Username</div>
-						<input type='email' name="username" required="required" class="searchrent_inputtext2"/>
+						<input type='email' name="username" autofocus="true" required="required" class="searchrent_inputtext2"/>
 						<div class="input_heading">Password</div>
 						<input type="password" name="password" required="required" class="searchrent_inputtext2"/>
 					</div>
