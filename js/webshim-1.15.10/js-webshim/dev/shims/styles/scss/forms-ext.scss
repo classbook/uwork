@@ -333,7 +333,7 @@ span.step-control {
 /* helper classes to hide show/hide specific btn features features */
 @each $class in $btnapis {
 	.#{$class} {
-		@extend %#{$class};
+		@extend #{$class};
 	}
 }
 
@@ -623,7 +623,7 @@ span.ws-input {
 /* helper classes to hide show/hide specific range features features */
 @each $class in $rangeapis {
 	.#{$class} {
-		@extend %#{$class};
+		@extend #{$class};
 	}
 }
 
