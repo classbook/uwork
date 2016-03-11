@@ -1,6 +1,7 @@
 <?php
 
-mysql_connect("localhost", "root", "Curryplant@04");
+mysql_connect("localhost", "root", "Curryplant@04") or die("Couldn't connect");
+$theirdb = mysql_select_db("sitsolut_avi");
 mysql_select_db("avi_real");
 include "session.php";
 include "validator.php";

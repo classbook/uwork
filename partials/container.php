@@ -90,7 +90,7 @@
                             <li><a href="list.php" class="active1">LIST YOUR APT</a></li>
                             <li><a href="#">DIPLOMATS</a></li>
                             <li><a href="#">SETTING IN</a></li>
-                            <li><a href="#">ABOUT US</a></li>
+                            <li><a href="about.php">ABOUT US</a></li>
                            
                           </ul>
                         </div>
