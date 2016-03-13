@@ -1,5 +1,5 @@
 <?php
-	$current_page = "projects";
+$current_page = "projects";
 
 include("dbconfig.php");
 $r = mysql_query('select * from featured_project order by id desc');
@@ -79,7 +79,7 @@ $r = mysql_query('select * from featured_project order by id desc');
 										?>
                                             <tr class="odd gradeX">
                                                 <td><?php echo $i++;?></td>
-												<td><img src='../featuredProjectImage/<?php echo $row['image']; ?>' style='height:45px; height:45px;'></td>
+												<td><img src='../thumbs/featured_<?php echo $row['id']; ?>.jpeg?img=<?php echo rand();?>' style='height:45px; height:45px;'></td>
                                                 <td><?php echo $row['title']; ?></td>
                                                 <td><?php echo $row['subtitle']; ?></td>
 												<td><a href='edit_featuredproject.php?fid=<?php echo $row['id'];?>'>Edit</a> | <a href='delete_featuredproject.php?fid=<?php echo $row['id'];?>' onclick='return  confirm("Are you sure you want to delete this?");'>Delete</a></td> 

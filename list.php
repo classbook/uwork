@@ -21,25 +21,64 @@ if (isset($_POST["apartment"])){
 		"day_phone" => "number",
 		"eve_phone" => "number",
 		"mob_phone" => "number",
+		
+		
 		"for_rent" => "anything",
 		"for_sale" => "anything",
 		"for_sublet" => "anything",
 		"for_sterm" => "anything",
+		
+		
 		"availability_from" => "anything",
 		"availability_to" => "anything",
-		"propertyCondition" => "anything",
+		
+		
+		"property_condition" => "anything",
 		"notes" => "anything",
 		"neighborhood" => "anything",
 		"neighborhoodcateg" => "anything",
-		"buildingAge" => "number",
+				
+		
+		"Walls_allowed" => "anything",
+		"pet_policy" => "anything",
+		"building_age" => "number",
+		"ownership" => "anything",
 		"diplomats" => "anything",
-		"Walls" => "anything",
+
+		
 		"bathroom" => "number",
 		"partbath" => "number",
 		"fullbath" => "number",
-		"serviceLevel" => "number",
-		"price" => "number"
+		"service_level" => "number",
+		"access" => "number",
+		
+		"outdoor_spaces" => "anything",
+		"fitness_pool" => "anything",
+		"doorman" => "anything",
+		"parking_garage" => "anything",
+		"laundry" => "anything",
+		"central_air" => "anything",
+		
+		"fireplace" => "anything",
+		"hardwood_floors" => "anything",
+		"multilevel" => "anything",
+		"laundry_in_unit" => "anything",
+		"high_ceilings" => "anything",
+		"walk_in_closet" => "anything",
+
+		"price" => "number",
+		
 	);
+	$checkboxes = array(
+	"outdoor_spaces", "fitness_pool", "doorman", "parking_garage", "laundry", "central_air", 
+	
+	"for_rent", "for_sale", "for_sublet", "for_sterm",
+	
+	"fireplace", "hardwood_floors", "multilevel", "laundry_in_unit", "high_ceilings", "walk_in_closet",
+		
+		
+	);
+
 	$required = array(
 		"name", "mob_phone", "address", "availability_from", "availability_to", "price"
 	);
@@ -59,8 +98,6 @@ if (isset($_POST["apartment"])){
 				$mapping[$value] = $_POST[$value];
 		}
 
-		$checkboxes = array("outdoor_spaces", "fitness_pool", "doorman", "wifi", "swimming_pool", "pets_allowed", "for_rent", "for_sale", "for_sublet", "for_sterm");
-		
 		foreach ($checkboxes as $value) {
 			if (isset($_POST[$value]))
 				$mapping[$value] = $_POST["$value"];
@@ -101,13 +138,13 @@ if (isset($_POST["apartment"])){
 		
 		$table = "";
 		$values = "";
-		$start = true;
+		$neighborhood_start = true;
 		foreach ($mapping as $key => $value) {
-			if (!$start){
+			if (!$neighborhood_start){
 				$table .= ",";
 				$values .=",";
 			}
-			$start=false;
+			$neighborhood_start=false;
 			
 			$value = htmlentities(mysql_escape_string($value));
 			$table .= "`$key`";
@@ -189,29 +226,26 @@ while ($row = mysql_fetch_array($query, MYSQL_ASSOC))
 							<div class="input_heading">I WOULD LIKE TO ADD MY PROPERTY FOR :</div>
 							<div style="float: left">
 								<label style="font-weight: normal; display: inline">
-									<input type="checkbox" name='for_rent' value="TRUE"/>Rent &nbsp;
+									<input type="checkbox" name='for_rent' value="TRUE"/>
+									Rent &nbsp;
 								</label>
 								<label style="font-weight: normal; display: inline">
-									<input type="checkbox" name='for_sale' value="TRUE"/>Sale &nbsp;
+									<input type="checkbox" name='for_sale' value="TRUE"/>
+									Sale &nbsp;
 								</label>
 								<label style="font-weight: normal; display: inline">
-									<input type="checkbox" name='for_sublet' value="TRUE"/>Sublet &nbsp;
+									<input type="checkbox" name='for_sublet' value="TRUE"/>
+									Sublet &nbsp;
 								</label>
 								<label style="font-weight: normal; display: inline">
-									<input type="checkbox" name='for_sterm' value="TRUE"/>Short Term 
+									<input type="checkbox" name='for_sterm' value="TRUE"/>
+									Short Term 
 								</label>
 							</div>
 							<div style="clear: both;"></div>
 							 <div class="input_heading_50">START DATE </div><div class="input_heading_50"> END DATE</div>
 							 <input type="date" name="availability_from" required="required" class="searchrent_inputtext3 w_48" style="margin-right:10px;margin-top:5px"/>
 							 <input type="date" name="availability_to" required="required" class="searchrent_inputtext3 w_48" style="margin-top:5px"/>
-							 <div class="input_heading">CONDITION OF PROPERTY</div>
-								<select class="searchrent_select2 w_100">
-											<option>New</option>
-											<option>---</option>
-											<option>---</option>
-											<option>---</option>
-										</select>
 							  <div class="input_heading">NOTES : </div>
 							  <textarea cols="4" rows="4" name="notes" class="searchrent_inputtext2" style="height:100px;"></textarea>
 						</div>
@@ -225,22 +259,8 @@ while ($row = mysql_fetch_array($query, MYSQL_ASSOC))
 							<input type="text" pattern="[0-9]+"  name='eve_phone' class="searchrent_inputtext2"/>
 							<div class="input_heading">MOBILE NUMBER</div>
 							<input type="text" pattern="[0-9]+" name='mob_phone' required="required" class="searchrent_inputtext2"/>
-
-							<div class="input_heading">WALLS ALLOWED</div>
-							<select class="searchrent_select2 w_100">
-								<option value="NEW">New</option>
-								<option value="---">---</option>
-							</select>
-							<div class="input_heading">BUILDING AGE</div>
-							<select class="searchrent_select2 w_100" name="buildingAge">
-								<option value="1">New</option>
-								<option value="2">---</option>
-							</select>
-							<div class="input_heading">DIPLOMATS</div>
-							<select class="searchrent_select2 w_100" name="diplomats">
-								<option value="NEW">New</option>
-								<option value="---">---</option>
-							</select>
+							<div class="input_heading">PRICE</div>
+							<input type="text" pattern="[0-9]+" name='price' required="required" class="searchrent_inputtext2"/>
 							<div class="input_heading">Select Neighborhood Category</div>
 							<select class="searchrent_select2 w_100" required="required" name="neighborhoodcateg" id="neighborhoodcateg">
 								<?php 
@@ -283,58 +303,112 @@ while ($row = mysql_fetch_array($query, MYSQL_ASSOC))
 						</div>
 					</div>  
 					<div class="row" style="margin-top:45px">
-						<div class="col-md-4">
+						<div class="col-md-3">
 							<div class="rent_details_heading ">
 							   ADDITIONAL INFO
 							</div>
-							<div class="input_heading">BATH ROOM</div>
-							<select class="searchrent_select2 w_100" name="bathroom">
-								<option value="1">New</option>
-								<option value="2">---</option>
+							<div class="input_heading">Bedrooms</div>
+							<select class="searchrent_select2 w_100" name="bedroom">
+							<?php foreach (domains::$select_domains["bedroom"] as $key => $value) {
+								if ($key=="default")continue;?>
+								<option value="<?php echo $key;?>"><?php echo $value;?></option>
+							<?php }	?>
 							</select>
-							<div class="input_heading" name="partbath">PART BATH</div>
+							<div class="input_heading" name="partbath">Part Bath</div>
 							<select class="searchrent_select2 w_100" name="partbath">
-								<option value="1">New</option>
-								<option value="2">---</option>
+							<?php foreach (domains::$select_domains["partbath"] as $key => $value) {
+								if ($key=="default")continue;?>
+								<option value="<?php echo $key;?>"><?php echo $value;?></option>
+							<?php }	?>
 							</select>
-							<div class="input_heading" name="fullbath">FULL BATH</div>
+							<div class="input_heading" name="fullbath">Full Bath</div>
 							<select class="searchrent_select2 w_100" name="fullbath">
-								<option value="1">New</option>
-								<option value="2">---</option>
+							<?php foreach (domains::$select_domains["fullbath"] as $key => $value) {
+								if ($key=="default")continue;?>
+								<option value="<?php echo $key;?>"><?php echo $value;?></option>
+							<?php }	?>
 							</select>
-							<div class="input_heading">SERVICE LEVEL</div>
-							<select class="searchrent_select2 w_100" name="serviceLevel">
-								<option value="1">New</option>
-								<option value="2">---</option>
+							<div class="input_heading" name="service_level">Service Level</div>
+							<select class="searchrent_select2 w_100" name="service_level">
+							<?php foreach (domains::$select_domains["service_level"] as $key => $value) {
+								if ($key=="default")continue;?>
+								<option value="<?php echo $key;?>"><?php echo $value;?></option>
+							<?php }	?>
+							</select>
+							<div class="input_heading" name="access">Access</div>
+							<select class="searchrent_select2 w_100" name="access">
+							<?php foreach (domains::$select_domains["access"] as $key => $value) {
+								if ($key=="default")continue;?>
+								<option value="<?php echo $key;?>"><?php echo $value;?></option>
+							<?php }	?>
 							</select>
 						</div>
-						<div class="col-md-4">
-							<div class="rent_details_heading ">
-							   APARTMENT FEATURES
+
+						<div class="col-md-3" style="margin-top: 25px;">
+							<div class="input_heading">Walls Allowed</div>
+							<select class="searchrent_select2 w_100" name="walls_allowed">
+							<?php foreach (domains::$select_domains["walls_allowed"] as $key => $value) {
+								if ($key=="default")continue;?>
+								<option value="<?php echo $key;?>"><?php echo $value;?></option>
+							<?php }	?>
+							</select>
+							<div class="input_heading">Pet Policy</div>
+							<select class="searchrent_select2 w_100" name="pet_policy">
+							<?php foreach (domains::$select_domains["pet_policy"] as $key => $value) {
+								if ($key=="default")continue;?>
+								<option value="<?php echo $key;?>"><?php echo $value;?></option>
+							<?php }	?>
+							</select>
+							<div class="input_heading">Building Age</div>
+							<select class="searchrent_select2 w_100" name="building_age">
+								<option value="1">New</option>
+								<option value="2">---</option>
+							</select>
+							<div class="input_heading">Diplomats</div>
+							<select class="searchrent_select2 w_100" name="diplomats">
+							<?php foreach (domains::$select_domains["diplomats"] as $key => $value) {
+								if ($key=="default")continue;?>
+								<option value="<?php echo $key;?>"><?php echo $value;?></option>
+							<?php }	?>
+							</select>
+							 <div class="input_heading">Condition Of Property</div>
+								<select class="searchrent_select2 w_100">
+									<option>New</option>
+									<option>---</option>
+									<option>---</option>
+									<option>---</option>
+								</select>
+
+						</div>
+						<div class="col-md-3" style="margin-top: 25px;">
+							<div class="input_heading" style="font-weight: 900; margin-bottom: 0px;">
+								Apartment Features
 							</div>
 							<div class="searchrent_check">
+								<?php 
+									foreach (domains::$checkboxes["apartment_features"] as $key=>$value){
+								?>
 								<label style="display: block; font-weight: normal">
-									<input type="checkbox" value="TRUE" name="outdoor_spaces"/> &nbsp;Outdoor Spaces
+									<input type="checkbox" value="TRUE" name="<?php echo $key;?>"/>
+									&nbsp;<?php echo $value?>
 								</label>
-								<label style="display: block; font-weight: normal">
-									<input type="checkbox" value="TRUE" name="fitness_pool"/> &nbsp;Fitness Pool
-								</label>
-								<label style="display: block; font-weight: normal">
-									<input type="checkbox" value="TRUE" name="doorman"/> &nbsp;Doorman
-								</label>
-								<label style="display: block; font-weight: normal">
-									<input type="checkbox" value="TRUE" name="wifi"/> &nbsp;WiFi
-								</label>
-								<label style="display: block; font-weight: normal">
-									<input type="checkbox" name="pets_allowed"/> &nbsp;Pets allowed
-								</label>
-								<label style="display: block; font-weight: normal">
-									<input type="checkbox" value="TRUE" name="swimming_pool"/> &nbsp;Swimming 
-								</label>
+								<?php }?>
 							</div>
-							<div class="input_heading">Price</div>
-							<input type="text" pattern="[0-9]+" required="required" name='price' class="searchrent_inputtext2"/>
-
+						</div>
+						<div class="col-md-3" style="margin-top: 25px;">
+							<div class="input_heading" style="font-weight: 900; margin-bottom: 0px;">
+								Building Features
+							</div>
+							<div class="searchrent_check">
+								<?php 
+									foreach (domains::$checkboxes["building_features"] as $key=>$value){
+								?>
+								<label style="display: block; font-weight: normal">
+									<input type="checkbox" value="TRUE" name="<?php echo $key;?>"/>
+									&nbsp;<?php echo $value;?>
+								</label>
+								<?php }?>
+							</div>
 						</div>
 					</div>
 					<div class="row">

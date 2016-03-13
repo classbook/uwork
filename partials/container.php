@@ -85,11 +85,12 @@
                         
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="margin-top:25px">
                           <ul class="nav navbar-nav navbar-right" >
+                          	<li><a href="index.php">Home</a></li>
                           	<li><a href="search.php">SEARCH</a></li>
-                            <li><a href="#">SHORT TERM AND SUBLET</a></li>
+                            <li><a href="shortterm.php">SHORT TERM</a></li>
+                            <li><a href="sublet.php">SUBLET</a></li>
+                            <li><a href="rentbuy.php">RENT/BUY</a></li>
                             <li><a href="list.php" class="active1">LIST YOUR APT</a></li>
-                            <li><a href="#">DIPLOMATS</a></li>
-                            <li><a href="#">SETTING IN</a></li>
                             <li><a href="about.php">ABOUT US</a></li>
                            
                           </ul>
@@ -155,11 +156,16 @@
 <script src="js/utility.js"></script>
 <script type="text/javascript" src="js/minified/polyfiller.js"></script>
 <script type="text/javascript">
-	webshim.polyfill("forms-ext");
 	//configure forms-ext features
 	webshim.activeLang("en-IN");
+
+	webshim.setOptions("forms", {
+		lazyCustomMessages: true,
+		replaceValidationUI: true,
+		customDatalist: "auto"
+	});
 	webshim.setOptions("forms-ext", {
-		replaceUI: "auto",
+		replaceUI: "true",
 		types: "date",
 		date: {
 			startView: 2,
@@ -174,6 +180,7 @@
 			classes: "show-activevaluetooltip"
 		}
 	});
+	webshim.polyfill("forms-ext");
 </script>
 <!-------------------------------------------------------------------------------------------------------------------->
 </body>

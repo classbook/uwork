@@ -24,13 +24,9 @@
                   BEDROOMS
                 </div>
                 <select class="searchrent_select w_65" name="equals['bedroom']">
-					<?php
-					foreach (domains::$select_domains["bedroom"] as $key => $value) {
-					?>
+					<?php foreach (domains::$select_domains["bedroom"] as $key => $value) {?>
 					<option value="<?php echo $key;?>"><?php echo $value;?></option>
-					<?php
-					}
-					?>
+					<?php }?>
                 </select>
             </div>
             <div class="col-md-3"> 
@@ -63,7 +59,6 @@
               <div class="linedivider"> &nbsp; </div>
             </div>
           </div>   
-
 
 <?php 
 	include 'partials/search.php';

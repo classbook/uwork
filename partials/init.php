@@ -6,6 +6,7 @@ mysql_select_db("avi_real");
 include "session.php";
 include "validator.php";
 include 'Image.php';
+include 'domains.php';
 
 function createQuery($string)
 {

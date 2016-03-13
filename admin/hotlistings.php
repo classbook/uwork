@@ -14,6 +14,7 @@ $r = mysql_query('select * from hot_losting order by id desc');
         <link href="bootstrap/css/bootstrap-responsive.min.css" rel="stylesheet" media="screen">
         <link href="assets/styles.css" rel="stylesheet" media="screen">
         <link href="assets/DT_bootstrap.css" rel="stylesheet" media="screen">
+		<script type="text/javascript" src="../js/jquery.js"></script>
         <!--[if lte IE 8]><script language="javascript" type="text/javascript" src="vendors/flot/excanvas.min.js"></script><![endif]-->
         <!-- HTML5 shim, for IE6-8 support of HTML5 elements -->
         <!--[if lt IE 9]>
@@ -77,7 +78,7 @@ $r = mysql_query('select * from hot_losting order by id desc');
 										?>
                                             <tr class="odd gradeX">
                                                 <td><?php echo $i++;?></td>
-												<td><img src='../hotListImage/<?php echo $row['image']; ?>' style='height:45px; height:45px;'></td>
+												<td><img src='../thumbs/hotlisting_<?php echo $row['id']; ?>.jpeg?id=<?php echo rand();?>' style='height:45px; height:45px;'></td>
                                                 <td><?php echo $row['title']; ?></td>
                                                 <td><?php echo $row['subtitle']; ?></td>
 												<td><a href='edit_hotList.php?fid=<?php echo $row['id'];?>'>Edit</a> | <a href='delete_hotlisting.php?fid=<?php echo $row['id'];?>' onclick='return confirm("Are you sure you want to delete this?");'>Delete</a></td> 

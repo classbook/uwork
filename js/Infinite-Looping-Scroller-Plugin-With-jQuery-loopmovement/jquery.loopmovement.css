@@ -1,0 +1,29 @@
+
+#box {
+  position: relative;
+  height: 320px;
+  width: 500px;
+  overflow: hidden;
+}
+
+#box1 { position: absolute; }
+
+.top { top: 0px; }
+
+.bottom { bottom: 0px; }
+
+.left { left: 0px; }
+
+.right { right: 0px; }
+
+.content {
+  width: 460px;
+  height: 320px;
+  background: #34BC9D;
+  font-size: 50px;
+  color: #fff;
+  line-height: 320px;
+  padding: 0 20px;
+}
+
+.toLeft { float: left; }
