@@ -24,6 +24,10 @@
 	.date-input-buttons{
 		display : none;
 	}
+	.ul__
+	{
+		margin-top: 10px;
+	}
 </style>
 </head>
 <body>
@@ -85,15 +89,27 @@
                         
                         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1" style="margin-top:25px">
                           <ul class="nav navbar-nav navbar-right" >
-                          	<li><a href="index.php">Home</a></li>
-                          	<li><a href="search.php">SEARCH</a></li>
-                            <li><a href="shortterm.php">SHORT TERM</a></li>
-                            <li><a href="sublet.php">SUBLET</a></li>
-                            <li><a href="rentbuy.php">RENT/BUY</a></li>
+                            <li><a href="#" onclick="$('.ul__').hide();$('#searchrentbuy').show();">Search</a></li>
+                            <li><a href="#" onclick="$('.ul__').hide();$('#shortermsublet').show();">SHORT TERM & SUBLET</a></li>
                             <li><a href="list.php" class="active1">LIST YOUR APT</a></li>
-                            <li><a href="about.php">ABOUT US</a></li>
-                           
+							<li><a href="#" >DIPLOMATS</a></li>
+							<li><a href="#" >SETTINGS IN</a></li>
+                            <li><a href="#" onclick="$('.ul__').hide();$('#aboutwebsite').show();">ABOUT</a></li>
                           </ul>
+						<ul class="ul__ nav navbar-nav" id="searchrentbuy" <?php if (!isset($_RENTBUY))echo 'style="display : none"';?>>
+							<li><a href="rentbuy.php">Rent</a></li>
+                            <li><a href="rentbuy.php?buy=true">Buy</a></li>
+						</ul>
+						<ul class="ul__ nav navbar-nav" id="shortermsublet" <?php if (!isset($_SHORTTERM))echo 'style="display : none"';?>>
+							<li><a href="shortterm.php">SHORT TERM</a></li>
+                            <li><a href="sublet.php">SUBLET</a></li>
+						</ul>
+						<ul class="ul__ nav navbar-nav" id="aboutwebsite" <?php if (!isset($_ABOUTUS))echo 'style="display : none"';?>>
+							<li><a href="about.php">OUR PLEDGE</a></li>
+                            <li><a href="#">SERVICES</a></li>
+                            <li><a href="#">CAREERS</a></li>
+                            <li><a href="#">AGENTS</a></li>
+						</ul>
                         </div>
                       </div>
                     </nav>                     

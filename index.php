@@ -98,7 +98,7 @@
                     </div>
 
                     <h3>Hot Listings</h3>
-					<marquee direction="up" behavior="scroll">
+					<div>
 						<div class="hot_listings" >
 							<div class="listing_image" ><img src="http://localhost/img/01t.png" ></div>
 							<div class="listing_name" >Telica <br >Two bedroom | @40,000 $<br ><a href="#">View Listing</a> | <a href="#">Watch Video</a></div>
@@ -111,7 +111,7 @@
 							<div class="listing_image" ><img src="http://localhost/img/01t.png" ></div>
 							<div class="listing_name" >Telica <br >Two bedroom | @40,000 $<br ><a href="#">View Listing</a> | <a href="#">Watch Video</a></div>
 						</div>
-					</marquee>
+					</div>
                 </div>
             </div>
         </div>

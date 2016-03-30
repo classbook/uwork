@@ -1,4 +1,5 @@
 <?php 
+$_ABOUTUS = true;
 	include "./partials/init.php";
 	ob_start();
 $r1 = mysql_query("select * from sitsolut_avi.aboutus where id=1");
@@ -6,7 +7,7 @@ $row=mysql_fetch_array($r1, MYSQL_ASSOC);
 
 ?>
 
-<section class="page_mid"  >
+<section class="page_mid">
     <div class="container" >
         <div class="page_pad" >
             <div class="row" >

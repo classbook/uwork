@@ -1,4 +1,5 @@
 <?php 
+	$_SHORTTERM = true;
 	include "./partials/init.php";
 	ob_start();
 

@@ -1,4 +1,5 @@
 <?php 
+$_RENTBUY = true;
 	include "./partials/init.php";
 	ob_start();
 
@@ -6,11 +7,10 @@
 
 
 <form method="GET" action="results.php">
-	<input type='hidden' name="search" value='none'/>
+	<input type='hidden' name="search" value='<?php if (isset($_GET["buy"]))echo "buy";else echo "rent"?>'/>
 <section class="page_mid"  >
 	<div class="container" >
         <div class="page_pad">
-
           <div class="row">
           	<div class="col-md-6">
             	<div class="full_width_div" id="clickdiv">

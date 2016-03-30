@@ -11,6 +11,12 @@
 	$filters = array();
 	
 	if (isset($_GET["search"])){
+		if ($_GET["search"]=="buy"){
+			$conditions = "(for_sale=TRUE) ";
+		}
+		else{
+			$conditions = "(for_rent=TRUE) ";
+		}
 		$equals = isset($_GET["equals"])?$_GET["equals"]:array();
 		$greater = isset($_GET["greaterthan"])?$_GET["greaterthan"]:array();
 		$lessthan =isset($_GET["lessthan"])?$_GET["lessthan"]:array();
